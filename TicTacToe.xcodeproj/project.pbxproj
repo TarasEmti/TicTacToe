@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		76DC32BC2025926500B5FA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32BB2025926500B5FA26 /* AppDelegate.swift */; };
-		76DC32BE2025926500B5FA26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32BD2025926500B5FA26 /* ViewController.swift */; };
-		76DC32C12025926500B5FA26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32BF2025926500B5FA26 /* Main.storyboard */; };
 		76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32C22025926500B5FA26 /* TicTacToe.xcdatamodeld */; };
 		76DC32C62025926500B5FA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32C52025926500B5FA26 /* Assets.xcassets */; };
 		76DC32C92025926500B5FA26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32C72025926500B5FA26 /* LaunchScreen.storyboard */; };
+		76DC32D12025EE7D00B5FA26 /* TMGameMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32D02025EE7D00B5FA26 /* TMGameMenuVC.swift */; };
+		76DC32D42025F24400B5FA26 /* String + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32D32025F24400B5FA26 /* String + ext.swift */; };
+		76DC32D72025F31D00B5FA26 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32D92025F31D00B5FA26 /* Localizable.strings */; };
+		76DC32DD2025F8D600B5FA26 /* TMBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32DC2025F8D600B5FA26 /* TMBaseVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		76DC32B82025926500B5FA26 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DC32BB2025926500B5FA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76DC32BD2025926500B5FA26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		76DC32C02025926500B5FA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76DC32C32025926500B5FA26 /* TicTacToe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicTacToe.xcdatamodel; sourceTree = "<group>"; };
 		76DC32C52025926500B5FA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76DC32C82025926500B5FA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76DC32CA2025926500B5FA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76DC32D02025EE7D00B5FA26 /* TMGameMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameMenuVC.swift; sourceTree = "<group>"; };
+		76DC32D32025F24400B5FA26 /* String + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + ext.swift"; sourceTree = "<group>"; };
+		76DC32D82025F31D00B5FA26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		76DC32DA2025F3E000B5FA26 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		76DC32DB2025F3E000B5FA26 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		76DC32DC2025F8D600B5FA26 /* TMBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBaseVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +63,24 @@
 			isa = PBXGroup;
 			children = (
 				76DC32BB2025926500B5FA26 /* AppDelegate.swift */,
-				76DC32BD2025926500B5FA26 /* ViewController.swift */,
-				76DC32BF2025926500B5FA26 /* Main.storyboard */,
+				76DC32D22025EEA600B5FA26 /* ViewControllers */,
 				76DC32C52025926500B5FA26 /* Assets.xcassets */,
 				76DC32C72025926500B5FA26 /* LaunchScreen.storyboard */,
+				76DC32D32025F24400B5FA26 /* String + ext.swift */,
+				76DC32D92025F31D00B5FA26 /* Localizable.strings */,
 				76DC32CA2025926500B5FA26 /* Info.plist */,
 				76DC32C22025926500B5FA26 /* TicTacToe.xcdatamodeld */,
 			);
 			path = TicTacToe;
+			sourceTree = "<group>";
+		};
+		76DC32D22025EEA600B5FA26 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				76DC32D02025EE7D00B5FA26 /* TMGameMenuVC.swift */,
+				76DC32DC2025F8D600B5FA26 /* TMBaseVC.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +109,7 @@
 		76DC32B02025926500B5FA26 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TM;
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Taras Minin";
@@ -110,6 +127,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 76DC32AF2025926500B5FA26;
 			productRefGroup = 76DC32B92025926500B5FA26 /* Products */;
@@ -127,8 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				76DC32C92025926500B5FA26 /* LaunchScreen.storyboard in Resources */,
+				76DC32D72025F31D00B5FA26 /* Localizable.strings in Resources */,
 				76DC32C62025926500B5FA26 /* Assets.xcassets in Resources */,
-				76DC32C12025926500B5FA26 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DC32D42025F24400B5FA26 /* String + ext.swift in Sources */,
 				76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */,
-				76DC32BE2025926500B5FA26 /* ViewController.swift in Sources */,
+				76DC32DD2025F8D600B5FA26 /* TMBaseVC.swift in Sources */,
+				76DC32D12025EE7D00B5FA26 /* TMGameMenuVC.swift in Sources */,
 				76DC32BC2025926500B5FA26 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,20 +168,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		76DC32BF2025926500B5FA26 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				76DC32C02025926500B5FA26 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		76DC32C72025926500B5FA26 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				76DC32C82025926500B5FA26 /* Base */,
+				76DC32DA2025F3E000B5FA26 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		76DC32D92025F31D00B5FA26 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				76DC32D82025F31D00B5FA26 /* en */,
+				76DC32DB2025F3E000B5FA26 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -171,6 +193,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -228,6 +251,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

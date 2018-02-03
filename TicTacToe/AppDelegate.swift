@@ -16,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		
+		// I assume that every game runs in fullscreen, so we don't need a status bar
+		UIApplication.shared.isStatusBarHidden = true
+		
+		window = UIWindow(frame: UIScreen.main.bounds)
+		window?.rootViewController = TMGameMenuVC()
+		window?.makeKeyAndVisible()
+		
 		return true
 	}
 
