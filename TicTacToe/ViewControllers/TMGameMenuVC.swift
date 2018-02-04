@@ -17,7 +17,7 @@ class TMGameMenuVC: TMBaseVC {
 	let buttonInfo: UIButton!
 	
 	init() {
-		self.appIcon = UIImageView(image: UIImage(named: ""))
+		self.appIcon = UIImageView(image: UIImage(named: "app_icon"))
 		self.buttonPlay = UIButton(type: .system)
 		self.buttonSettings = UIButton(type: .system)
 		self.buttonStats = UIButton(type: .system)
@@ -30,12 +30,15 @@ class TMGameMenuVC: TMBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		appIcon.backgroundColor = .yellow
+		// Cutomize our subviews
 		buttonPlay.setTitle("Play".localized, for: .normal)
 		buttonSettings.setTitle("Settings".localized, for: .normal)
 		buttonStats.setTitle("Statistics".localized, for: .normal)
 		buttonInfo.setTitle("Info".localized, for: .normal)
 		
+		buttonPlay.addTarget(self, action: #selector(buttonPlayTouchUp(sender:)), for: .touchUpInside)
+		
+		// Add subviews to controller's view
 		view.addSubview(appIcon)
 		view.addSubview(buttonPlay)
 		view.addSubview(buttonSettings)
@@ -72,5 +75,10 @@ class TMGameMenuVC: TMBaseVC {
 		
 		buttonInfo.frame = CGRect(x: x, y: y, width: itemWidth, height: buttonHeight)
 		y += buttonInfo.bounds.height + offset
+	}
+	
+	@objc func buttonPlayTouchUp(sender: UIButton) {
+		let optionsVC = TMGameOptionsVC()
+		navigationController?.present(optionsVC, animated: true, completion: nil)
 	}
 }

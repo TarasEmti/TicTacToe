@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UIApplication.shared.isStatusBarHidden = true
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.rootViewController = TMGameMenuVC()
+		window?.rootViewController = UINavigationController(rootViewController: TMGameMenuVC())
 		window?.makeKeyAndVisible()
 		
 		return true

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76011F0D2026036800E80F62 /* TMGameOptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F0C2026036800E80F62 /* TMGameOptionsVC.swift */; };
+		76011F1C202627C000E80F62 /* TMGameOptionCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F1A202627C000E80F62 /* TMGameOptionCVCell.swift */; };
+		76011F1D202627C100E80F62 /* TMGameOptionCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76011F1B202627C000E80F62 /* TMGameOptionCVCell.xib */; };
+		76011F212026492E00E80F62 /* TMHorizontalCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F202026492E00E80F62 /* TMHorizontalCV.swift */; };
+		76011F232026D7FA00E80F62 /* TMGameLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F222026D7FA00E80F62 /* TMGameLib.swift */; };
+		76011F252026D99700E80F62 /* TMGameOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F242026D99700E80F62 /* TMGameOptionsView.swift */; };
+		76011F28202713CF00E80F62 /* TMGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F27202713CF00E80F62 /* TMGame.swift */; };
 		76DC32BC2025926500B5FA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32BB2025926500B5FA26 /* AppDelegate.swift */; };
 		76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32C22025926500B5FA26 /* TicTacToe.xcdatamodeld */; };
 		76DC32C62025926500B5FA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32C52025926500B5FA26 /* Assets.xcassets */; };
@@ -18,6 +25,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76011F0C2026036800E80F62 /* TMGameOptionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameOptionsVC.swift; sourceTree = "<group>"; };
+		76011F1A202627C000E80F62 /* TMGameOptionCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameOptionCVCell.swift; sourceTree = "<group>"; };
+		76011F1B202627C000E80F62 /* TMGameOptionCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TMGameOptionCVCell.xib; sourceTree = "<group>"; };
+		76011F202026492E00E80F62 /* TMHorizontalCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHorizontalCV.swift; sourceTree = "<group>"; };
+		76011F222026D7FA00E80F62 /* TMGameLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameLib.swift; sourceTree = "<group>"; };
+		76011F242026D99700E80F62 /* TMGameOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameOptionsView.swift; sourceTree = "<group>"; };
+		76011F27202713CF00E80F62 /* TMGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGame.swift; sourceTree = "<group>"; };
 		76DC32B82025926500B5FA26 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DC32BB2025926500B5FA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DC32C32025926500B5FA26 /* TicTacToe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicTacToe.xcdatamodel; sourceTree = "<group>"; };
@@ -43,6 +57,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76011F122026046E00E80F62 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				76011F132026048000E80F62 /* TMHorizpntalCV */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		76011F132026048000E80F62 /* TMHorizpntalCV */ = {
+			isa = PBXGroup;
+			children = (
+				76011F1A202627C000E80F62 /* TMGameOptionCVCell.swift */,
+				76011F1B202627C000E80F62 /* TMGameOptionCVCell.xib */,
+				76011F202026492E00E80F62 /* TMHorizontalCV.swift */,
+			);
+			path = TMHorizpntalCV;
+			sourceTree = "<group>";
+		};
+		76011F26202710E400E80F62 /* GameOptionsVC + View */ = {
+			isa = PBXGroup;
+			children = (
+				76011F0C2026036800E80F62 /* TMGameOptionsVC.swift */,
+				76011F242026D99700E80F62 /* TMGameOptionsView.swift */,
+			);
+			path = "GameOptionsVC + View";
+			sourceTree = "<group>";
+		};
 		76DC32AF2025926500B5FA26 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				76DC32BB2025926500B5FA26 /* AppDelegate.swift */,
+				76011F222026D7FA00E80F62 /* TMGameLib.swift */,
+				76011F27202713CF00E80F62 /* TMGame.swift */,
+				76011F122026046E00E80F62 /* Subviews */,
 				76DC32D22025EEA600B5FA26 /* ViewControllers */,
 				76DC32C52025926500B5FA26 /* Assets.xcassets */,
 				76DC32C72025926500B5FA26 /* LaunchScreen.storyboard */,
@@ -78,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				76DC32D02025EE7D00B5FA26 /* TMGameMenuVC.swift */,
+				76011F26202710E400E80F62 /* GameOptionsVC + View */,
 				76DC32DC2025F8D600B5FA26 /* TMBaseVC.swift */,
 			);
 			path = ViewControllers;
@@ -144,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76011F1D202627C100E80F62 /* TMGameOptionCVCell.xib in Resources */,
 				76DC32C92025926500B5FA26 /* LaunchScreen.storyboard in Resources */,
 				76DC32D72025F31D00B5FA26 /* Localizable.strings in Resources */,
 				76DC32C62025926500B5FA26 /* Assets.xcassets in Resources */,
@@ -157,10 +203,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76011F252026D99700E80F62 /* TMGameOptionsView.swift in Sources */,
 				76DC32D42025F24400B5FA26 /* String + ext.swift in Sources */,
+				76011F28202713CF00E80F62 /* TMGame.swift in Sources */,
 				76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */,
+				76011F1C202627C000E80F62 /* TMGameOptionCVCell.swift in Sources */,
+				76011F212026492E00E80F62 /* TMHorizontalCV.swift in Sources */,
+				76011F0D2026036800E80F62 /* TMGameOptionsVC.swift in Sources */,
 				76DC32DD2025F8D600B5FA26 /* TMBaseVC.swift in Sources */,
 				76DC32D12025EE7D00B5FA26 /* TMGameMenuVC.swift in Sources */,
+				76011F232026D7FA00E80F62 /* TMGameLib.swift in Sources */,
 				76DC32BC2025926500B5FA26 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
