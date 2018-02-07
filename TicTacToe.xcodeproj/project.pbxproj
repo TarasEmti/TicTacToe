@@ -14,6 +14,11 @@
 		76011F232026D7FA00E80F62 /* TMGameLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F222026D7FA00E80F62 /* TMGameLib.swift */; };
 		76011F252026D99700E80F62 /* TMGameOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F242026D99700E80F62 /* TMGameOptionsView.swift */; };
 		76011F28202713CF00E80F62 /* TMGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76011F27202713CF00E80F62 /* TMGame.swift */; };
+		763991202029F1CC00EAD4A7 /* TMSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7639911F2029F1CC00EAD4A7 /* TMSectionTitle.swift */; };
+		76399122202A002E00EAD4A7 /* TMBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76399121202A002E00EAD4A7 /* TMBoardVC.swift */; };
+		76399124202A00D400EAD4A7 /* TMBoardCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76399123202A00D400EAD4A7 /* TMBoardCV.swift */; };
+		76399128202A0FBC00EAD4A7 /* TMBoardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76399127202A0FBC00EAD4A7 /* TMBoardVC.xib */; };
+		7639912B202B48B700EAD4A7 /* TMBoardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7639912A202B48B700EAD4A7 /* TMBoardCVCell.swift */; };
 		76DC32BC2025926500B5FA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32BB2025926500B5FA26 /* AppDelegate.swift */; };
 		76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32C22025926500B5FA26 /* TicTacToe.xcdatamodeld */; };
 		76DC32C62025926500B5FA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32C52025926500B5FA26 /* Assets.xcassets */; };
@@ -21,7 +26,7 @@
 		76DC32D12025EE7D00B5FA26 /* TMGameMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32D02025EE7D00B5FA26 /* TMGameMenuVC.swift */; };
 		76DC32D42025F24400B5FA26 /* String + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32D32025F24400B5FA26 /* String + ext.swift */; };
 		76DC32D72025F31D00B5FA26 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32D92025F31D00B5FA26 /* Localizable.strings */; };
-		76DC32DD2025F8D600B5FA26 /* TMBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32DC2025F8D600B5FA26 /* TMBaseVC.swift */; };
+		76DC32DD2025F8D600B5FA26 /* TMBaseVC + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32DC2025F8D600B5FA26 /* TMBaseVC + ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		76011F222026D7FA00E80F62 /* TMGameLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameLib.swift; sourceTree = "<group>"; };
 		76011F242026D99700E80F62 /* TMGameOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameOptionsView.swift; sourceTree = "<group>"; };
 		76011F27202713CF00E80F62 /* TMGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGame.swift; sourceTree = "<group>"; };
+		7639911F2029F1CC00EAD4A7 /* TMSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSectionTitle.swift; sourceTree = "<group>"; };
+		76399121202A002E00EAD4A7 /* TMBoardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBoardVC.swift; sourceTree = "<group>"; };
+		76399123202A00D400EAD4A7 /* TMBoardCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBoardCV.swift; sourceTree = "<group>"; };
+		76399127202A0FBC00EAD4A7 /* TMBoardVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TMBoardVC.xib; sourceTree = "<group>"; };
+		7639912A202B48B700EAD4A7 /* TMBoardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBoardCVCell.swift; sourceTree = "<group>"; };
 		76DC32B82025926500B5FA26 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DC32BB2025926500B5FA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DC32C32025926500B5FA26 /* TicTacToe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicTacToe.xcdatamodel; sourceTree = "<group>"; };
@@ -43,7 +53,7 @@
 		76DC32D82025F31D00B5FA26 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		76DC32DA2025F3E000B5FA26 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		76DC32DB2025F3E000B5FA26 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		76DC32DC2025F8D600B5FA26 /* TMBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBaseVC.swift; sourceTree = "<group>"; };
+		76DC32DC2025F8D600B5FA26 /* TMBaseVC + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TMBaseVC + ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,19 +70,21 @@
 		76011F122026046E00E80F62 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
-				76011F132026048000E80F62 /* TMHorizpntalCV */,
+				76011F132026048000E80F62 /* TMHorizontalCV */,
+				7639911F2029F1CC00EAD4A7 /* TMSectionTitle.swift */,
+				76399129202B487800EAD4A7 /* TMBoardCV */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
 		};
-		76011F132026048000E80F62 /* TMHorizpntalCV */ = {
+		76011F132026048000E80F62 /* TMHorizontalCV */ = {
 			isa = PBXGroup;
 			children = (
 				76011F1A202627C000E80F62 /* TMGameOptionCVCell.swift */,
 				76011F1B202627C000E80F62 /* TMGameOptionCVCell.xib */,
 				76011F202026492E00E80F62 /* TMHorizontalCV.swift */,
 			);
-			path = TMHorizpntalCV;
+			path = TMHorizontalCV;
 			sourceTree = "<group>";
 		};
 		76011F26202710E400E80F62 /* GameOptionsVC + View */ = {
@@ -82,6 +94,42 @@
 				76011F242026D99700E80F62 /* TMGameOptionsView.swift */,
 			);
 			path = "GameOptionsVC + View";
+			sourceTree = "<group>";
+		};
+		7639911E2029E68200EAD4A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76011F222026D7FA00E80F62 /* TMGameLib.swift */,
+				76011F27202713CF00E80F62 /* TMGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76399125202A0CE700EAD4A7 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				76DC32D32025F24400B5FA26 /* String + ext.swift */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
+		76399126202A0CFF00EAD4A7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				76DC32C52025926500B5FA26 /* Assets.xcassets */,
+				76DC32C72025926500B5FA26 /* LaunchScreen.storyboard */,
+				76DC32D92025F31D00B5FA26 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		76399129202B487800EAD4A7 /* TMBoardCV */ = {
+			isa = PBXGroup;
+			children = (
+				76399123202A00D400EAD4A7 /* TMBoardCV.swift */,
+				7639912A202B48B700EAD4A7 /* TMBoardCVCell.swift */,
+			);
+			path = TMBoardCV;
 			sourceTree = "<group>";
 		};
 		76DC32AF2025926500B5FA26 = {
@@ -104,15 +152,12 @@
 			isa = PBXGroup;
 			children = (
 				76DC32BB2025926500B5FA26 /* AppDelegate.swift */,
-				76011F222026D7FA00E80F62 /* TMGameLib.swift */,
-				76011F27202713CF00E80F62 /* TMGame.swift */,
+				76DC32CA2025926500B5FA26 /* Info.plist */,
+				7639911E2029E68200EAD4A7 /* Model */,
 				76011F122026046E00E80F62 /* Subviews */,
 				76DC32D22025EEA600B5FA26 /* ViewControllers */,
-				76DC32C52025926500B5FA26 /* Assets.xcassets */,
-				76DC32C72025926500B5FA26 /* LaunchScreen.storyboard */,
-				76DC32D32025F24400B5FA26 /* String + ext.swift */,
-				76DC32D92025F31D00B5FA26 /* Localizable.strings */,
-				76DC32CA2025926500B5FA26 /* Info.plist */,
+				76399126202A0CFF00EAD4A7 /* Resources */,
+				76399125202A0CE700EAD4A7 /* Utilites */,
 				76DC32C22025926500B5FA26 /* TicTacToe.xcdatamodeld */,
 			);
 			path = TicTacToe;
@@ -122,8 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				76DC32D02025EE7D00B5FA26 /* TMGameMenuVC.swift */,
+				76399121202A002E00EAD4A7 /* TMBoardVC.swift */,
+				76399127202A0FBC00EAD4A7 /* TMBoardVC.xib */,
 				76011F26202710E400E80F62 /* GameOptionsVC + View */,
-				76DC32DC2025F8D600B5FA26 /* TMBaseVC.swift */,
+				76DC32DC2025F8D600B5FA26 /* TMBaseVC + ext.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -190,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76011F1D202627C100E80F62 /* TMGameOptionCVCell.xib in Resources */,
+				76399128202A0FBC00EAD4A7 /* TMBoardVC.xib in Resources */,
 				76DC32C92025926500B5FA26 /* LaunchScreen.storyboard in Resources */,
 				76DC32D72025F31D00B5FA26 /* Localizable.strings in Resources */,
 				76DC32C62025926500B5FA26 /* Assets.xcassets in Resources */,
@@ -204,13 +252,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				76011F252026D99700E80F62 /* TMGameOptionsView.swift in Sources */,
+				76399122202A002E00EAD4A7 /* TMBoardVC.swift in Sources */,
 				76DC32D42025F24400B5FA26 /* String + ext.swift in Sources */,
 				76011F28202713CF00E80F62 /* TMGame.swift in Sources */,
 				76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */,
+				7639912B202B48B700EAD4A7 /* TMBoardCVCell.swift in Sources */,
 				76011F1C202627C000E80F62 /* TMGameOptionCVCell.swift in Sources */,
 				76011F212026492E00E80F62 /* TMHorizontalCV.swift in Sources */,
 				76011F0D2026036800E80F62 /* TMGameOptionsVC.swift in Sources */,
-				76DC32DD2025F8D600B5FA26 /* TMBaseVC.swift in Sources */,
+				76399124202A00D400EAD4A7 /* TMBoardCV.swift in Sources */,
+				763991202029F1CC00EAD4A7 /* TMSectionTitle.swift in Sources */,
+				76DC32DD2025F8D600B5FA26 /* TMBaseVC + ext.swift in Sources */,
 				76DC32D12025EE7D00B5FA26 /* TMGameMenuVC.swift in Sources */,
 				76011F232026D7FA00E80F62 /* TMGameLib.swift in Sources */,
 				76DC32BC2025926500B5FA26 /* AppDelegate.swift in Sources */,

@@ -8,45 +8,15 @@
 
 import UIKit
 
-enum OpponentType {
-	case player
-	case computer
-	case wifi
-}
-
-enum BoardSize: Int {
-	case small 	= 3
-	case medium = 6
-	case large 	= 9
-}
-
-enum SpriteImage {
-	case cross
-	case circle
-	case triangle
-}
-
-struct TMGameOptions {
-	let opponents: [OpponentType] = [.player, .computer, .wifi]
-	let boards: [BoardSize] = [.small, .medium, .large]
-	let sprites: [SpriteImage] = [.cross, .circle, .triangle]
-}
-
-struct TMGameSettings {
-	var opponent: OpponentType?
-	var board: BoardSize?
-	var playerSprite: SpriteImage?
-	var opponentSprite: SpriteImage?
-}
-
 class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDelegate {
 	
-	var optionsView: TMGameOptionsView!
-	var chooseOpponentCV: TMHorizontalCV!
-	var chooseBoardCV: TMHorizontalCV!
-	var chooseSpriteCV: TMHorizontalCV!
-	let gameOptions = TMGameOptions()
-	var gameSettings = TMGameSettings(opponent: nil, board: nil, playerSprite: nil, opponentSprite: nil)
+	private var goView: TMGameOptionsView!
+	private var opponentsCV: UICollectionView!
+	private var boardSizesCV: UICollectionView!
+	private var spritesCV: UICollectionView!
+	
+	private let gameOptions = TMBoardVariables()
+	private var gameSettings = TMBoardSettings()
 	
 	init() {
 		super.init(nibName: nil, bundle: nil)
@@ -56,34 +26,32 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		optionsView = TMGameOptionsView()
-		view.addSubview(optionsView)
+		goView = TMGameOptionsView()
+		view.addSubview(goView)
 		
-		chooseOpponentCV = optionsView.firstSectionCV
-		chooseBoardCV = optionsView.secondSectionCV
-		chooseSpriteCV = optionsView.thirdSectionCV
+		// Bind outlets
+		opponentsCV 	= goView.firstSectionCV.collectionView
+		boardSizesCV 	= goView.secondSectionCV.collectionView
+		spritesCV 		= goView.thirdSectionCV.collectionView
 		
-		chooseOpponentCV.backgroundColor 	= TMGameLib.opponentSectionColor
-		chooseBoardCV.backgroundColor 		= TMGameLib.boardSectionColor
-		chooseSpriteCV.backgroundColor 		= TMGameLib.spriteSectionColor
+		// Sections appearence
+		opponentsCV.backgroundColor 	= TMGameLib.opponentSectionColor
+		boardSizesCV.backgroundColor 	= TMGameLib.boardSectionColor
+		spritesCV.backgroundColor 		= TMGameLib.spriteSectionColor
 		
-		chooseOpponentCV.dataSource = self
-		chooseOpponentCV.delegate = self
-		chooseBoardCV.dataSource = self
-		chooseBoardCV.delegate = self
-		chooseSpriteCV.dataSource = self
-		chooseSpriteCV.delegate = self
+		opponentsCV.dataSource = self
+		opponentsCV.delegate = self
 		
-		chooseOpponentCV.register(TMGameOptionCVCell.nib(), forCellWithReuseIdentifier: TMGameOptionCVCell.reuseIdentifier())
-		chooseBoardCV.register(TMGameOptionCVCell.nib(), forCellWithReuseIdentifier: TMGameOptionCVCell.reuseIdentifier())
-		chooseSpriteCV.register(TMGameOptionCVCell.nib(), forCellWithReuseIdentifier: TMGameOptionCVCell.reuseIdentifier())
+		boardSizesCV.dataSource = self
+		boardSizesCV.delegate = self
+		
+		spritesCV.dataSource = self
+		spritesCV.delegate = self
     }
 	
 	override func viewWillLayoutSubviews() {
 		super.viewWillLayoutSubviews()
-		optionsView.frame = view.bounds
-		optionsView.setNeedsLayout()
-		optionsView.layoutIfNeeded()
+		goView.frame = view.bounds
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -94,11 +62,11 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		
 		switch collectionView {
-		case chooseBoardCV:
+		case opponentsCV:
 			return gameOptions.boards.count
-		case chooseOpponentCV:
+		case boardSizesCV:
 			return gameOptions.opponents.count
-		case chooseSpriteCV:
+		case spritesCV:
 			return gameOptions.sprites.count
 		default:
 			return 0
@@ -110,9 +78,9 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TMGameOptionCVCell.reuseIdentifier(), for: indexPath) as? TMGameOptionCVCell else {
 			return UICollectionViewCell()
 		}
+		// Fill our static cells on each section
 		switch collectionView {
-		case chooseOpponentCV:
-			
+		case opponentsCV:
 			let opponent = gameOptions.opponents[indexPath.row]
 			switch opponent {
 			case .computer:
@@ -133,8 +101,8 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 			cell.stateSelectColor 	= TMGameLib.opponentCellSelected
 			cell.layer.borderColor 	= TMGameLib.opponentCellBorderColor.cgColor
 			return cell
-		case chooseBoardCV:
 			
+		case boardSizesCV:
 			let boardSize = gameOptions.boards[indexPath.row]
 			cell.imageView.isHidden = true
 			cell.titleLabel.textColor = .white
@@ -146,8 +114,7 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 			cell.layer.borderColor = TMGameLib.boardCellBorderColor.cgColor
 			return cell
 			
-		case chooseSpriteCV:
-			
+		case spritesCV:
 			let sprite = gameOptions.sprites[indexPath.row]
 			cell.titleLabel.isHidden = true
 			switch sprite {
@@ -157,7 +124,6 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 				cell.imageView.image = UIImage(named: "sprite_cross")
 			case .triangle:
 				cell.imageView.image = UIImage(named: "sprite_triangle")
-				
 			}
 			cell.imageView.tintColor = .black
 			cell.backgroundColor 	= TMGameLib.spriteSectionColor
@@ -175,20 +141,36 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		
 		switch collectionView {
-		case chooseOpponentCV:
+		case opponentsCV:
 			gameSettings.opponent 	= gameOptions.opponents[indexPath.row]
-		case chooseBoardCV:
+		case boardSizesCV:
 			gameSettings.board = gameOptions.boards[indexPath.row]
-		case chooseSpriteCV:
-			
+		case spritesCV:
 			if gameSettings.playerSprite == nil {
 				gameSettings.playerSprite = gameOptions.sprites[indexPath.row]
-				optionsView.thirdSectionLabel.text = "Choose opponent icon".localized
+				goView.thirdSectionCV.setTitleText("Choose opponent icon".localized, animated: true)
 			} else {
 				gameSettings.opponentSprite = gameOptions.sprites[indexPath.row]
 			}
 		default:
 			return
 		}
+		checkIsGameReady()
+	}
+	
+	private func checkIsGameReady() {
+		
+		// Check if all settings are set
+		guard
+			gameSettings.board != nil,
+			gameSettings.opponent != nil,
+			gameSettings.playerSprite != nil,
+			gameSettings.opponentSprite != nil else {
+			return
+		}
+		// Let's play the game!
+		let board = TMBoardVC()
+		board.settings = gameSettings
+		navigationController?.show(board, sender: self)
 	}
 }

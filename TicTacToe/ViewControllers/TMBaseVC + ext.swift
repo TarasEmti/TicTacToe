@@ -15,3 +15,13 @@ class TMBaseVC: UIViewController {
         view.backgroundColor = UIColor(red: 0.927, green: 1.0, blue: 1.0, alpha: 1.0)
     }
 }
+
+extension UIViewController {
+	
+	static func nib() -> UINib {
+		let fullName = NSStringFromClass(self.classForCoder())
+		let name = fullName.components(separatedBy: ".").last!
+		
+		return UINib(nibName: name, bundle: Bundle.main)
+	}
+}

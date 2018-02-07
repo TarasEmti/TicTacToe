@@ -30,6 +30,8 @@ class TMGameMenuVC: TMBaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		navigationController?.navigationBar.isHidden = true
+		
 		// Cutomize our subviews
 		buttonPlay.setTitle("Play".localized, for: .normal)
 		buttonSettings.setTitle("Settings".localized, for: .normal)
@@ -37,6 +39,10 @@ class TMGameMenuVC: TMBaseVC {
 		buttonInfo.setTitle("Info".localized, for: .normal)
 		
 		buttonPlay.addTarget(self, action: #selector(buttonPlayTouchUp(sender:)), for: .touchUpInside)
+		
+		#if DEBUG
+			self.buttonPlayTouchUp(sender: buttonPlay)
+		#endif
 		
 		// Add subviews to controller's view
 		view.addSubview(appIcon)
@@ -79,6 +85,6 @@ class TMGameMenuVC: TMBaseVC {
 	
 	@objc func buttonPlayTouchUp(sender: UIButton) {
 		let optionsVC = TMGameOptionsVC()
-		navigationController?.present(optionsVC, animated: true, completion: nil)
+		navigationController?.show(optionsVC, sender: self)
 	}
 }
