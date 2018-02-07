@@ -9,8 +9,8 @@
 import Foundation
 
 enum BoardCellStatus {
-	case cross
-	case circle
+	case player
+	case opponent
 	case none
 }
 
@@ -30,10 +30,10 @@ enum BoardSize: Int {
 	case large 	= 9
 }
 
-enum SpriteImage {
-	case cross
-	case circle
-	case triangle
+enum SpriteImage: String {
+	case cross 		= "sprite_cross"
+	case circle 	= "sprite_circle"
+	case triangle 	= "sprite_triangle"
 }
 
 struct TMBoardVariables {
@@ -44,14 +44,14 @@ struct TMBoardVariables {
 
 struct TMBoardSettings {
 	var opponent: OpponentType!
-	var board: BoardSize!
+	var boardSize: BoardSize!
 	var playerSprite: SpriteImage!
 	var opponentSprite: SpriteImage!
 	
-	init(opponent: OpponentType? = nil, board: BoardSize? = nil, playerSprite: SpriteImage? = nil, opponentSprite: SpriteImage? = nil) {
+	init(opponent: OpponentType? = nil, boardSize: BoardSize? = nil, playerSprite: SpriteImage? = nil, opponentSprite: SpriteImage? = nil) {
 		
 		self.opponent = opponent
-		self.board = board
+		self.boardSize = boardSize
 		self.playerSprite = playerSprite
 		self.opponentSprite = opponentSprite
 	}

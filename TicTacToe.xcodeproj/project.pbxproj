@@ -19,6 +19,7 @@
 		76399124202A00D400EAD4A7 /* TMBoardCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76399123202A00D400EAD4A7 /* TMBoardCV.swift */; };
 		76399128202A0FBC00EAD4A7 /* TMBoardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76399127202A0FBC00EAD4A7 /* TMBoardVC.xib */; };
 		7639912B202B48B700EAD4A7 /* TMBoardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7639912A202B48B700EAD4A7 /* TMBoardCVCell.swift */; };
+		7639912E202B65ED00EAD4A7 /* TMBoardBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7639912D202B65ED00EAD4A7 /* TMBoardBrain.swift */; };
 		76DC32BC2025926500B5FA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32BB2025926500B5FA26 /* AppDelegate.swift */; };
 		76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76DC32C22025926500B5FA26 /* TicTacToe.xcdatamodeld */; };
 		76DC32C62025926500B5FA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76DC32C52025926500B5FA26 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		76399123202A00D400EAD4A7 /* TMBoardCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBoardCV.swift; sourceTree = "<group>"; };
 		76399127202A0FBC00EAD4A7 /* TMBoardVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TMBoardVC.xib; sourceTree = "<group>"; };
 		7639912A202B48B700EAD4A7 /* TMBoardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBoardCVCell.swift; sourceTree = "<group>"; };
+		7639912D202B65ED00EAD4A7 /* TMBoardBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBoardBrain.swift; sourceTree = "<group>"; };
 		76DC32B82025926500B5FA26 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76DC32BB2025926500B5FA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76DC32C32025926500B5FA26 /* TicTacToe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TicTacToe.xcdatamodel; sourceTree = "<group>"; };
@@ -70,9 +72,9 @@
 		76011F122026046E00E80F62 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				76399129202B487800EAD4A7 /* TMBoardCV */,
 				76011F132026048000E80F62 /* TMHorizontalCV */,
 				7639911F2029F1CC00EAD4A7 /* TMSectionTitle.swift */,
-				76399129202B487800EAD4A7 /* TMBoardCV */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				76011F222026D7FA00E80F62 /* TMGameLib.swift */,
+				7639912D202B65ED00EAD4A7 /* TMBoardBrain.swift */,
 				76011F27202713CF00E80F62 /* TMGame.swift */,
 			);
 			path = Model;
@@ -130,6 +133,15 @@
 				7639912A202B48B700EAD4A7 /* TMBoardCVCell.swift */,
 			);
 			path = TMBoardCV;
+			sourceTree = "<group>";
+		};
+		7639912C202B51EF00EAD4A7 /* TMBoardVC */ = {
+			isa = PBXGroup;
+			children = (
+				76399121202A002E00EAD4A7 /* TMBoardVC.swift */,
+				76399127202A0FBC00EAD4A7 /* TMBoardVC.xib */,
+			);
+			path = TMBoardVC;
 			sourceTree = "<group>";
 		};
 		76DC32AF2025926500B5FA26 = {
@@ -167,8 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				76DC32D02025EE7D00B5FA26 /* TMGameMenuVC.swift */,
-				76399121202A002E00EAD4A7 /* TMBoardVC.swift */,
-				76399127202A0FBC00EAD4A7 /* TMBoardVC.xib */,
+				7639912C202B51EF00EAD4A7 /* TMBoardVC */,
 				76011F26202710E400E80F62 /* GameOptionsVC + View */,
 				76DC32DC2025F8D600B5FA26 /* TMBaseVC + ext.swift */,
 			);
@@ -253,6 +264,7 @@
 			files = (
 				76011F252026D99700E80F62 /* TMGameOptionsView.swift in Sources */,
 				76399122202A002E00EAD4A7 /* TMBoardVC.swift in Sources */,
+				7639912E202B65ED00EAD4A7 /* TMBoardBrain.swift in Sources */,
 				76DC32D42025F24400B5FA26 /* String + ext.swift in Sources */,
 				76011F28202713CF00E80F62 /* TMGame.swift in Sources */,
 				76DC32C42025926500B5FA26 /* TicTacToe.xcdatamodeld in Sources */,

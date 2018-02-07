@@ -21,8 +21,11 @@ struct TMGameLib {
 	static let spriteSectionColor 		= UIColor(red: 0.41, green: 0.88, blue: 0.433, alpha: 1.0)
 	static let spriteCellSelected 		= UIColor(red: 0.41, green: 0.74, blue: 0.433, alpha: 1.0)
 	static let spriteCellBorderColor 	= UIColor(red: 0.55, green: 0.88, blue: 0.433, alpha: 1.0)
-	static let genericLabelColor 		= UIColor(red: 0.75, green: 0.93, blue: 1.0, alpha: 1.0)
-	static let genericLabelBorderColor 	= UIColor(red: 0.85, green: 0.93, blue: 1.0, alpha: 1.0)
+	static let genericLabelColor 		= UIColor(red: 0.750, green: 0.930, blue: 1.0, alpha: 1.0)
+	static let genericLabelBorderColor 	= UIColor(red: 0.850, green: 0.930, blue: 1.0, alpha: 1.0)
+	static let backgroundColor 			= UIColor(red: 0.927, green: 1.00, blue: 1.00, alpha: 1.0)
+	static let boardCell 				= UIColor(red: 1.0, green: 0.666, blue: 0.460, alpha: 1.0)
+	static let boardCellHighlighted 	= UIColor(red: 1.0, green: 0.950, blue: 0.460, alpha: 1.0)
 	
 	// Fonts
 	static let commonOptionsFont = UIFont(name: "Copperplate", size: 14)

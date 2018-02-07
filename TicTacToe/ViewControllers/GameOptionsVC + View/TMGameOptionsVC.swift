@@ -94,7 +94,7 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 				cell.titleLabel.text = "Wi-Fi".localized
 			}
 			// Cell cutomization
-			cell.imageView.tintColor = .black
+			
 			cell.titleLabel.font 	= TMGameLib.commonOptionsFont
 			cell.backgroundColor 	= TMGameLib.opponentSectionColor
 			cell.stateDeselectColor = TMGameLib.opponentSectionColor
@@ -117,15 +117,7 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 		case spritesCV:
 			let sprite = gameOptions.sprites[indexPath.row]
 			cell.titleLabel.isHidden = true
-			switch sprite {
-			case .circle:
-				cell.imageView.image = UIImage(named: "sprite_circle")
-			case .cross:
-				cell.imageView.image = UIImage(named: "sprite_cross")
-			case .triangle:
-				cell.imageView.image = UIImage(named: "sprite_triangle")
-			}
-			cell.imageView.tintColor = .black
+			cell.imageView.image = UIImage(named: sprite.rawValue)
 			cell.backgroundColor 	= TMGameLib.spriteSectionColor
 			cell.stateDeselectColor = TMGameLib.spriteSectionColor
 			cell.stateSelectColor 	= TMGameLib.spriteCellSelected
@@ -144,7 +136,7 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 		case opponentsCV:
 			gameSettings.opponent 	= gameOptions.opponents[indexPath.row]
 		case boardSizesCV:
-			gameSettings.board = gameOptions.boards[indexPath.row]
+			gameSettings.boardSize = gameOptions.boards[indexPath.row]
 		case spritesCV:
 			if gameSettings.playerSprite == nil {
 				gameSettings.playerSprite = gameOptions.sprites[indexPath.row]
@@ -162,15 +154,14 @@ class TMGameOptionsVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDel
 		
 		// Check if all settings are set
 		guard
-			gameSettings.board != nil,
+			gameSettings.boardSize != nil,
 			gameSettings.opponent != nil,
 			gameSettings.playerSprite != nil,
 			gameSettings.opponentSprite != nil else {
 			return
 		}
 		// Let's play the game!
-		let board = TMBoardVC()
-		board.settings = gameSettings
+		let board = TMBoardVC(withSettings: gameSettings)
 		navigationController?.show(board, sender: self)
 	}
 }

@@ -12,7 +12,7 @@ class TMBaseVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.927, green: 1.0, blue: 1.0, alpha: 1.0)
+        view.backgroundColor = TMGameLib.backgroundColor
     }
 }
 

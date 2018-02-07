@@ -19,6 +19,7 @@ class TMGameOptionCVCell: UICollectionViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
 		layer.borderWidth = 1.0
+		imageView.tintColor = .black
     }
 	
 	override var isSelected: Bool {

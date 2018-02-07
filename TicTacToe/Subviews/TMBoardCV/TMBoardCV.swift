@@ -13,6 +13,8 @@ class TMBoardCV: UICollectionView {
 	
 	func customizeForBoardSize(size: Int) {
 		
+		backgroundColor = TMGameLib.backgroundColor
+		
 		let minimumSide: CGFloat 	= min(bounds.width, bounds.height)
 		let element: CGFloat 		= minimumSide/CGFloat(size)
 		let spacing: CGFloat		= element*0.1
@@ -22,6 +24,7 @@ class TMBoardCV: UICollectionView {
 		layout.itemSize = itemSize
 		layout.minimumLineSpacing 		= spacing
 		layout.minimumInteritemSpacing 	= spacing
+		layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: spacing, right: 0)
 		
 		self.collectionViewLayout = layout
 		self.register(TMBoardCVCell.self, forCellWithReuseIdentifier: TMBoardCVCell.reuseIdentifier())
