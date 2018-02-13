@@ -17,6 +17,23 @@ class TMBoardVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDelegate 
 	@IBOutlet weak var gameStats: UILabel!
 	@IBOutlet weak var turnTimerProgress: UIProgressView!
 	
+	private var playerWinCount = 0 {
+		didSet {
+			updatePlayerScore(playerWinCount)
+		}
+	}
+	private var opponentWinCount = 0 {
+		didSet {
+			updateOpponentScore(opponentWinCount)
+		}
+	}
+	// Always true against computer or opponent
+	var whoseTurn: BoardCellStatus = .player {
+		didSet {
+			updateWhoseTurn()
+		}
+	}
+	
 	let settings: TMBoardSettings
 	var boardBrain: TMBoardBrain
 	
@@ -33,17 +50,20 @@ class TMBoardVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDelegate 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		updatePlayerScore(0)
+		updateOpponentScore(0)
+		
 		boardCV.customizeForBoardSize(size: settings.boardSize.rawValue)
 		boardCV.dataSource = self
 		boardCV.delegate = self
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return boardBrain.rows
+		return boardBrain.boardSize
 	}
 	
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return boardBrain.columns
+		return boardBrain.boardSize
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,22 +90,92 @@ class TMBoardVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDelegate 
 		}
 		
 		if boardBrain[indexPath.row, indexPath.section] == .none {
-			boardBrain[indexPath.row, indexPath.section] = .player
+			boardBrain[indexPath.row, indexPath.section] = whoseTurn
+			// Switch turn after a move
+			whoseTurn = whoseTurn == .player ? .opponent : .player
 			cell.fillCell(withSprite: settings.playerSprite)
-		} else {
-			boardBrain[indexPath.row, indexPath.section] = .none
-			cell.sprite.image = nil
 		}
 		collectionView.deselectItem(at: indexPath, animated: true)
 		collectionView.reloadItems(at: [indexPath])
+		
+		if let winner = boardBrain.isGameOver() {
+			endRound(winner: winner)
+		}
+	}
+	
+	private func endRound(winner: BoardCellStatus) {
+		switch winner {
+		case .player:
+			playerWinCount += 1
+		case .opponent:
+			opponentWinCount += 1
+		case .none:
+			print("MATCH")
+		}
+		showResults(winner: winner)
+		
+		// Clear the board
+		boardBrain.resetGame()
+		boardCV.reloadSections(IndexSet.init(integersIn: 0 ..< settings.boardSize.rawValue))
+	}
+	
+	// MARK: - UI changes
+	private func updatePlayerScore(_ score: Int) {
+		let defaultColor = playerStatus.textColor
+		UIView.transition(with: playerStatus, duration: 0.15, options: .transitionCrossDissolve, animations: {
+			self.playerStatus.text = String(format: "Player: %d".localized, score)
+			self.playerStatus.textColor = .green
+		}) { (_) in
+			UIView.transition(with: self.playerStatus, duration: 0.25, options: .transitionCrossDissolve, animations: {
+				self.playerStatus.textColor = defaultColor
+			})
+		}
+	}
+	
+	private func updateOpponentScore(_ score: Int) {
+		let defaultColor = opponentStatus.textColor
+		UIView.transition(with: opponentStatus, duration: 0.15, options: .transitionCrossDissolve, animations: {
+			self.opponentStatus.text = String(format: "Opponent: %d".localized, score)
+			self.opponentStatus.textColor = .red
+		}) { (_) in
+			UIView.transition(with: self.opponentStatus, duration: 0.25, options: .transitionCrossDissolve, animations: {
+				self.opponentStatus.textColor = defaultColor
+			})
+		}
+	}
+	
+	private func updateWhoseTurn() {
+		switch whoseTurn {
+		case .player:
+			gameStats.text = "Player turn!".localized
+		case .opponent:
+			switch settings.opponent! {
+			case .computer:
+				gameStats.text = "Waiting for a computer".localized
+			default:
+				gameStats.text = "Opponent turn".localized
+			}
+		default:
+			gameStats.text = "ERROR"
+		}
+	}
+	
+	private func showResults(winner: BoardCellStatus) {
+		switch winner {
+		case .player:
+			gameStats.text = "You WIN!".localized
+		case .opponent:
+			gameStats.text = "You LOSE!".localized
+		case .none:
+			gameStats.text = "DRAW!".localized
+		}
 	}
 	
 	// MARK: - Actions
-	
 	@IBAction func optionsTouchUp(_ sender: Any) {
 		navigationController?.popViewController(animated: true)
 	}
 	@IBAction func settigsTouchUp(_ sender: Any) {
-		boardCV.reloadData()
+		// Call a settings popup
 	}
 }
