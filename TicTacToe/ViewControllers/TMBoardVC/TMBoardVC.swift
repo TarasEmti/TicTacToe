@@ -36,6 +36,7 @@ class TMBoardVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDelegate 
 	
 	let settings: TMBoardSettings
 	var boardBrain: TMBoardBrain
+	private let endGameAnimationTime = 2
 	
 	init(withSettings settings: TMBoardSettings) {
 		self.settings = settings
@@ -115,8 +116,12 @@ class TMBoardVC: TMBaseVC, UICollectionViewDataSource, UICollectionViewDelegate 
 		showResults(winner: winner)
 		
 		// Clear the board
+		perform(#selector(clearBoard), with: nil, afterDelay: TimeInterval(endGameAnimationTime))
+	}
+	
+	@objc func clearBoard() {
 		boardBrain.resetGame()
-		boardCV.reloadSections(IndexSet.init(integersIn: 0 ..< settings.boardSize.rawValue))
+		boardCV.reloadSections(IndexSet(integersIn: 0 ..< settings.boardSize.rawValue))
 	}
 	
 	// MARK: - UI changes

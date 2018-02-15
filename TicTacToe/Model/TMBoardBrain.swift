@@ -39,11 +39,21 @@ struct TMBoardBrain {
 	}
 	
 	func isGameOver() -> BoardCellStatus? {
+		
+		// First we check main diagonal
 		if let winner = checkMainDiagonal() {
 			return winner
+			// Then we check sub diagonal
 		} else if let winner = checkSubDiagonal() {
 			return winner
+			// Then we check both lines horizontal & vertical
+		} else if let winner = checkLines() {
+			return winner
+			// If we still don't have a winner, check if game is over
+		} else if checkDraw() {
+			return BoardCellStatus.none
 		} else {
+			// Return nil because game is not over yet
 			return nil
 		}
 	}
@@ -51,6 +61,7 @@ struct TMBoardBrain {
 	// Algorythm to check winner
 	private func checkMainDiagonal() -> BoardCellStatus? {
 		let symb = self[0, 0]
+		// skip iterations if cell is empty
 		if symb == .none {
 			return nil
 		}
@@ -63,6 +74,7 @@ struct TMBoardBrain {
 	
 	private func checkSubDiagonal() -> BoardCellStatus? {
 		let symb = self[boardSize - 1, 0]
+		// skip iterations if cell is empty
 		if symb == .none {
 			return nil
 		}
@@ -71,6 +83,33 @@ struct TMBoardBrain {
 			isWin = self[boardSize - i - 1, i] == symb && isWin
 		}
 		return isWin ? symb : nil
+	}
+	
+	private func checkLines() -> BoardCellStatus? {
+		for row in 0 ..< boardSize {
+			// skip iterations if cell is empty
+			if self[row, 0] == .none {
+				continue
+			}
+			let symb = self[row, 0]
+			var cols = true
+			var rows = true
+			for col in 0 ..< boardSize {
+				rows = rows && (self[row, col] == symb)
+				cols = cols && (self[col, row] == symb)
+			}
+			if cols || rows {
+				return symb
+			}
+		}
+		return nil
+	}
+	
+	private func checkDraw() -> Bool {
+		for cell in board where cell == .none {
+			return false
+		}
+		return true
 	}
 	
 	mutating func resetGame() {
